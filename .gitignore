@@ -1,0 +1,17 @@
+# Visual Studio user files
+*.vcxproj.user
+
+# Visual Studio cache
+*.aps
+
+# Build output
+Debug/
+Release/
+x64/
+x86/
+
+# Intermediate files
+*.obj
+*.pdb
+*.idb
+*.ilk
