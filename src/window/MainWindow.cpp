@@ -72,7 +72,7 @@ void MainWindow::run()
 		0,
 		WINEVENT_OUTOFCONTEXT);
 
-	MyUtils::showTrayMessage(m_hwnd, L"OneWinDesk 正在运行");
+	MyUtils::showTrayMessage(m_hwnd, LanguageManager::res.trayNotify_msg_afterRun);
 
 	// 开始消息循环
 	MSG msg;
