@@ -15,6 +15,8 @@
 - 开机自启动
 - 将前台窗口进程添加进白名单
 - 白名单管理
+- 排除相同进程窗口
+  > 该选项默认开启, 效果为: 如果新的前台窗口跟上一个前台窗口属于同一个进程, 将不执行最小化操作
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
