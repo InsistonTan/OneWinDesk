@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="OneWinDesk.vcxproj" Id="11cf310e-62a3-4902-9b9c-1ce227cf025c" />
+</Solution>
