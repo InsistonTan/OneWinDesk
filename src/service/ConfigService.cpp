@@ -21,6 +21,10 @@ void ConfigService::saveToFile()
 		file << string_whitelist << "=" << item << '\n';
 	}
 
+	// 排除相同进程窗口
+	int val = userConfig.filterSameProcessWindow ? 1 : 0;
+	file << string_filter_same_process_window << "=" << val << "\n";
+
 	file.close();
 }
 
@@ -53,9 +57,35 @@ void ConfigService::load()
 		if (key == string_whitelist && value.length() > 0) {
 			userConfig.whitelist.insert(value);
 		}
+		if (key == string_filter_same_process_window && value.length() > 0) {
+			userConfig.filterSameProcessWindow = (value == "1") ? true : false;
+		}
 	}
 
 	file.close();
+}
+
+void ConfigService::setFilterSameProcessWindow(bool val)
+{
+	{
+		// 加锁
+		std::lock_guard<std::mutex> lock(g_actionMutex);
+
+		// 值改变, 保存新值
+		if (val != userConfig.filterSameProcessWindow) {
+			userConfig.filterSameProcessWindow = val;
+
+			// 保存到文件
+			saveToFile();
+		}
+	}
+}
+
+bool ConfigService::isFilterSameProcessWindow()
+{
+	// 加锁
+	std::lock_guard<std::mutex> lock(g_actionMutex);
+	return userConfig.filterSameProcessWindow;
 }
 
 std::wstring ConfigService::getConfigPath()

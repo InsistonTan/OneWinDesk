@@ -20,6 +20,7 @@ enum TrayMenuId : UINT
 	ID_TRAY_EXIT = 1004,
 	ID_TRAY_ADD_WHITELIST = 1005,
 	ID_TRAY_WHITELIST_LISTVIEW = 1006,
+	ID_TRAY_FILTER_SAME_PROCESS = 1007,
 };
 
 enum WhiteListId : UINT
@@ -32,10 +33,5 @@ enum WhiteListId : UINT
 
 // 白名单
 const std::string string_whitelist = "whitelist";
-
-//const wchar_t WHITELIST_WINDOW_NAME[] = L"白名单管理";
-//const std::wstring wstring_pause = L"暂停"; 
-//const wchar_t wstring_enable[] = L"开启";
-//const wchar_t wstring_startOnStartup[] = L"开机自启动";
-//const wchar_t wstring_addToWhitelist[] = L"将前台窗口进程加入白名单";
-//const wchar_t wstring_exit[] = L"退出";
+// 排除相同进程的窗口
+const std::string string_filter_same_process_window = "filterSameProcessWindow";

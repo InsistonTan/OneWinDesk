@@ -3,6 +3,7 @@
 #include "../window/MainWindow.h"
 #include "../utils/MyUtils.h"
 #include "../utils/LanguageManager.h"
+#include "ConfigService.h"
 
 
 void TrayIconService::createTrayIcon(HWND hwnd, HICON hicon)
@@ -77,6 +78,18 @@ LRESULT TrayIconService::createTrayMenu(HWND hwnd)
 		MF_STRING,
 		ID_TRAY_WHITELIST_LISTVIEW,
 		LanguageManager::res.WHITELIST_WINDOW_NAME.c_str());
+
+	AppendMenuW(
+		hMenu,
+		MF_SEPARATOR,
+		0,
+		nullptr);
+
+	AppendMenuW(
+		hMenu,
+		MF_STRING | (ConfigService::isFilterSameProcessWindow() ? MF_CHECKED : 0),
+		ID_TRAY_FILTER_SAME_PROCESS,
+		LanguageManager::res.trayMenu_filterSameProcess.c_str());
 
 	AppendMenuW(
 		hMenu,

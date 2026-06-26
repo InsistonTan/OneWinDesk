@@ -16,6 +16,7 @@ private:
 		std::wstring trayMenu_enable;// 启动
 		std::wstring trayMenu_startOnStartup;// 开机自启动
 		std::wstring trayMenu_addToWhitelist;// 将前台窗口进程添加到白名单
+		std::wstring trayMenu_filterSameProcess;// 排除相同进程的窗口
 		std::wstring trayMenu_exit;// 退出
 
 		std::wstring WHITELIST_WINDOW_NAME; // 白名单管理 窗口名称
@@ -48,6 +49,7 @@ private:
 			trayMenu_enable = L"启动";
 			trayMenu_startOnStartup = L"开机自启动";
 			trayMenu_addToWhitelist = L"将前台窗口进程添加到白名单";
+			trayMenu_filterSameProcess = L"排除相同进程的窗口";
 			trayMenu_exit = L"退出";
 
 			WHITELIST_WINDOW_NAME = L"白名单管理";
@@ -68,6 +70,7 @@ private:
 			trayMenu_enable = L"Start";
 			trayMenu_startOnStartup = L"Run at startup";
 			trayMenu_addToWhitelist = L"Add foreground process to whitelist";
+			trayMenu_filterSameProcess = L"Exclude windows of the same process";
 			trayMenu_exit = L"Exit";
 
 			WHITELIST_WINDOW_NAME = L"Whitelist Manager";

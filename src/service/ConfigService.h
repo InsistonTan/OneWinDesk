@@ -12,6 +12,11 @@ public:
 	/// 白名单集合
 	/// </summary>
 	std::unordered_set<std::string> whitelist;
+
+	/// <summary>
+	/// 是否排除掉相同进程的窗口
+	/// </summary>
+	bool filterSameProcessWindow = true;
 };
 
 
@@ -54,6 +59,14 @@ public:
 	/// </summary>
 	static void load();
 	
+	/// <summary>
+	/// 设置 是否排除掉相同进程的窗口
+	/// </summary>
+	static void setFilterSameProcessWindow(bool val);
+	/// <summary>
+	/// 当前是否排除掉相同进程的窗口
+	/// </summary>
+	static bool isFilterSameProcessWindow();
 
 private:
 	/// <summary>

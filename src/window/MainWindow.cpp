@@ -182,7 +182,13 @@ LRESULT MainWindow::handleMessage(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPa
 			WhiteListWindow::show(m_hInstance, hIcon);
 			return 0;
 		}
-			
+		// 排除掉相同进程的窗口
+		case ID_TRAY_FILTER_SAME_PROCESS:
+		{
+			bool val = ConfigService::isFilterSameProcessWindow();
+			ConfigService::setFilterSameProcessWindow(!val);
+			return 0;
+		}
 		// 退出软件
 		case ID_TRAY_EXIT: {
 			DestroyWindow(hwnd);
@@ -250,6 +256,12 @@ void MainWindow::handleForegroundChange(HWND foreground)
 	// 过滤子窗口
 	if (GetParent(foreground) != NULL) {
 		//OutputDebugStringW(L"跳过子窗口\n\n");
+		return;
+	}
+
+	// 开启了 "排除相同进程的窗口" 选项, 并且当前窗口跟上一个前台窗口相同进程, 则不执行后续操作
+	if (ConfigService::isFilterSameProcessWindow() 
+		&& MyUtils::getProcessFileName(foreground) == MyUtils::getProcessFileName(last_foreground)) {
 		return;
 	}
 
