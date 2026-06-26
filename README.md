@@ -7,6 +7,9 @@
 ## 简介
 项目基于 Win32 C++ 开发, 体积极小, 占用内存也低. 软件没有主界面GUI, 只有托盘图标和托盘菜单.
 
+## 下载
+前往 [Releases](https://github.com/InsistonTan/OneWinDesk/Releases) 下载
+
 ## 功能
 - 桌面只能显示一个软件窗口, 打开新窗口时自动最小化旧窗口
 - 开机自启动
